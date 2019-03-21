@@ -1,0 +1,212 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { 
+    margin:0; padding:0; 
+}
+body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; }
+h1, h2, h3, h4, h5, h6{ font-size:100%; }
+address, cite, dfn, em, var { font-style:normal; }
+code, kbd, pre, samp { font-family:couriernew, courier, monospace; }
+small{ font-size:12px; }
+ul, ol { list-style:none; }
+a { text-decoration:none; }
+a:hover { text-decoration:underline; }
+sup { vertical-align:text-top; }
+sub{ vertical-align:text-bottom; }
+legend { color:#000; }
+fieldset, img { border:0; }
+button, input, select, textarea { font-size:100%; }
+table { border-collapse:collapse; border-spacing:0; } 
+/* 初始化结束 */
+body{
+    width: 100vh;
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    background: url(../images/loginBg.jpg) center no-repeat fixed;
+    background-size: cover;
+}
+header{
+    width: 100%;
+    height: 200px;
+    position: relative;
+    text-align: center;
+}
+header h1{
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    line-height: 200px;
+    font-size: 30px;
+}
+/* header结束 */
+section{
+    width: 100%;
+    height: 375px;
+    position: relative;
+}
+section .login-body{
+    width: 685px;
+    height: 305px;
+    position: relative;
+    margin: auto;
+    padding: 35px 30px;
+    color: #666;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 1px 1px 4px #767676;
+}
+section .login-body .login-title{
+    font-size: 1.375rem;
+    margin-bottom: 40px;
+    text-align: center;
+    box-sizing: border-box;
+}
+section .login-body .box{
+    width: 623px;
+    height: 226px;
+    box-sizing: border-box;
+}
+section .login-body .box .login-box{
+    height: 228px;
+    width: 405px;
+    display: inline-block;
+}
+section .login-body .box .login-box article{
+    height: 228px;
+    width: 405px;
+}
+section .login-body .box .login-box .account-login{
+    height: 228px;
+    width: 405px;
+}
+section .login-body .box .login-box .account-login form{
+    height: 228px;
+    width: 405px;
+}
+section .login-body .box .login-box .account-login .login-form{
+    width: 300px;
+    margin-right: 52px;
+    margin-left: 38px;
+    height: 228px;
+}
+section .login-body .box .login-box .account-login .login-form .login-user,
+section .login-body .box .login-box .account-login .login-form .login-pwd{
+    margin-bottom: 20px;
+}
+section .login-body .box .login-box .account-login .login-form .username,
+section .login-body .box .login-box .account-login .login-form .password{
+    width: 300px;
+    height: 22px;
+    font-size: .875rem;
+    padding: 12px 20px;
+    color: #666;
+    border: 1px solid #dce4e6;
+    border-radius: 3px;
+    outline: 0;
+    background: #f3f6f8;
+}
+section .login-body .box .login-box .account-login .login-form .login-state{
+    width: 300px;
+    float: left;
+    margin-bottom: 20px;
+    font-size: 16px;
+    position: relative;
+}
+section .login-body .box .login-box .account-login .login-form .login-state .checkbox-group{
+    width: 200px;
+    height: 25px;
+    float: left;
+    line-height: 25px;
+}
+section .login-body .box .login-box .account-login .login-form .login-state .checkbox-group .save-login{
+    width: 16px;
+    height: 16px;
+    padding-top: 5px;
+}
+section .login-body .box .login-box .account-login .login-form .login-state .box-fr{
+    width: 100px;
+    height: 25px;
+    float: right;
+    text-align: center;
+    line-height: 25px;
+}
+section .login-body .box .login-box .account-login .login-form .login-btn-box{
+    height: 52px;
+}
+section .login-body .box .login-box .account-login .login-form .login-btn-box .login{
+    width: 300px;
+    height: 45px;
+    color: #fff;
+    background: #31b968;
+    -webkit-appearance: button;
+    padding: .4rem 1.2rem;
+    cursor: pointer;
+    transition: all .2s;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    outline: 0;
+}
+section .login-body .box .other-login-wrapper{
+    height: 228px;
+    width: 179px;
+    padding-left: 38px;
+    border-left: 1px dashed #eee;
+    float: right;
+}
+section .login-body .box .other-login-wrapper .span-box{
+    display: block;
+    height: 25px;
+    line-height: 25px;
+}
+section .login-body .box .other-login-wrapper .login-now{
+    padding: 0;
+    color: #31b968;
+    border: none;
+    border-radius: 0;
+    font-size: 1.125rem;
+    text-decoration: none;
+}
+section .login-body .box .other-login-wrapper .other-login{
+    margin-top: 10px;
+    height: 123px;
+    width: 179px;
+}
+section .login-body .box .other-login-wrapper .other-login .login-logos{
+    height: 98px;
+    margin-top: 10px;
+    width: 179px;
+    background: url(../images/Snipaste_2019-03-19_23-11-21.png) no-repeat;
+    background-size: cover;
+}
+section .login-body .box .other-login-wrapper .other-login .login-logos a{
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    margin-top: 10px;
+    margin-right: 20px;
+    outline: 0; 
+}
+/* 登录方式切换 */
+section .login-body .login-tabs{
+    display: none;
+}
+/* 扫描登录 */
+section .login-body .wechat-login{
+    display: none;
+}
+/* section结束 */
+footer{
+    height:80px;
+    position: relative;
+    font-size: .875rem;
+    line-height: 2;
+    width: 100%;
+    margin: 5.5vh 0;
+    text-align: center;
+    color: #fff;
+}
+footer .copy span{
+    display: inline-block;
+    margin: 0 auto;
+    text-align: left;
+    font: 400 16px/1.618 'PingFang SC','Helvetica Neue','Microsoft YaHei UI','Microsoft YaHei','Noto Sans CJK SC';
+}

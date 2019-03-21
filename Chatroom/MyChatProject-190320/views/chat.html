@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web ChatRoom</title>
+    <link rel="stylesheet" href="../public/css/chat.css">
+</head>
+
+<body>
+
+    <body>
+        <header class="header" id="head">
+            <h1 class="title">Web 聊天室</h1>
+        </header>
+        <section>
+            <div class="chat-body">
+                <div class="list-wrapper">
+                    <div class="online-list-box">
+                        <ul class="online-list">
+                            <li>所有人</li>
+                            <li>男生组</li>
+                            <li>女生组</li>
+                        </ul>
+                    </div>
+                    <div class="add-group-box">
+                        <input onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,'')"
+                            onpaste="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,'')"
+                            oncontextmenu="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,'')" type="text"
+                            placeholder="请输入群组名" name="groups" class="groups">
+                        <button class="add-groups">添加群组</button>
+                    </div>
+                </div>
+
+                <div class="chat-list-box">
+                    <div class="chat-info">
+                        <span class="who-chat">{{username}}</span>
+                        <span class="chat-text">====></span>
+                        <span class="chat-to"></span></div>
+                    <ul class="chat-list">
+
+                    </ul>
+                    <input type="text" placeholder="请输入消息" name="msgs" class="sendMsgs">
+                    <button class="send">发送</button>
+                </div>
+
+        </section>
+        <footer>
+            <div class="copy">
+                <span>联系邮箱：rexag.zhang@qq.com</span> |
+                <span>联系电话：16675159609</span> |
+                <span>粤ICP备xxxxxxxx号</span>
+                <div>Copyright © 2019 rexag.cn All Rights Reserved</div>
+            </div>
+        </footer>
+        <script src="/socket.io/socket.io.js"></script>
+        <script type="text/javascript">
+        var user_socketid = {{id}};
+            var socket = io('http://localhost:8888');
+            socket.on('connect', function () {
+                console.log('进行链接。。');
+                socket.emit('chat', {
+                    id: user_socketid
+                    })
+                });
+        </script>
+        <script src="../public/js/chat_socket.js"></script>
+        <script src="../public/js/chat.js"></script>
+    </body>
+</body>
+
+</html>

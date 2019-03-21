@@ -1,0 +1,239 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { 
+    margin:0; padding:0; 
+}
+body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; }
+h1, h2, h3, h4, h5, h6{ font-size:100%; }
+address, cite, dfn, em, var { font-style:normal; }
+code, kbd, pre, samp { font-family:couriernew, courier, monospace; }
+small{ font-size:12px; }
+ul, ol { list-style:none; }
+a { text-decoration:none; }
+a:hover { text-decoration:underline; }
+sup { vertical-align:text-top; }
+sub{ vertical-align:text-bottom; }
+legend { color:#000; }
+fieldset, img { border:0; }
+button, input, select, textarea { font-size:100%; }
+table { border-collapse:collapse; border-spacing:0; } 
+/* 初始化结束 */
+body{
+    width: 100vw;
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    background: url(../images/loginBg.jpg) center no-repeat fixed;
+    background-size: cover;
+}
+header{
+    width: 100vw;
+    height: 200px;
+    position: relative;
+    text-align: center;
+}
+header h1{
+    width: 100vw;
+    height: 200px;
+    position: absolute;
+    line-height: 200px;
+    font-size: 30px;
+}
+/* header结束 */
+section{
+    width: 100vw;
+    height: 575px;
+    position: relative;
+}
+section .chat-body{
+    width: 680px;
+    height: 500px;
+    position: relative;
+    margin: auto;
+    padding: 20px;
+    color: #666;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 1px 1px 4px #767676;
+}
+section .chat-body .list-wrapper{
+    width: 196px;
+    height: 496px;
+    position: absolute;
+    display: inline-block;
+    border: 1px solid rgba(12, 12, 12, 0.1)
+}
+section .chat-body .list-wrapper .online-list-box{
+    width: 196px;
+    height: 325px;
+    position: absolute;
+    display: inline-block;
+}
+section .chat-body .list-wrapper .online-list-box .online-list{
+    width: 174px;
+    height: 303px;
+    position: absolute;
+    margin: 10px;
+    display: inline-block;
+    border: 1px dashed rgba(22, 33, 22, 0.2);
+    overflow: hidden;
+    border: 1px solid #dce4e6;
+    outline: 0;
+    background: #f3f6f8;
+}
+section .chat-body .list-wrapper .online-list-box .online-list li{
+    width: 150px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    background: #31b968;
+    margin: 5px 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    outline: 0;
+    list-style: none;
+}
+section .chat-body .list-wrapper .add-group-box{
+    width: 194px;
+    height: 104px;
+    top: 375px;
+    position: absolute;
+    display: inline-block;
+}
+section .chat-body .list-wrapper .add-group-box .groups{
+    width: 176px;
+    height: 45px;
+    position: absolute;
+    font-size: .875rem;
+    color: #666;
+    border: 1px solid #dce4e6;
+    border-radius: 3px;
+    margin: 5px 10px;
+    outline: 0;
+    background: #f3f6f8;
+}
+section .chat-body .list-wrapper .add-group-box .add-groups{
+    width: 178px;
+    height: 45px;
+    color: #fff;
+    background: #31b968;
+    -webkit-appearance: button;
+    margin: 5px 10px;
+    cursor: pointer;
+    transition: all .2s;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    outline: 0;
+    position: absolute;
+    top: 60px;
+
+}
+section .chat-body .chat-list-box{
+    width: 456px;
+    height: 496px;
+    margin: 0px 10px;
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    left: 230px;
+    box-shadow: 2px 2px 4px #767676;
+}
+section .chat-body .chat-list-box .chat-info{
+    width: 436px;
+    height: 30px;
+    margin: 0px 10px;
+    display: inline-block;
+    position: absolute;
+    top:5px;
+    left: 0;
+}
+section .chat-body .chat-list-box .chat-info .who-chat,
+section .chat-body .chat-list-box .chat-info .chat-text,
+section .chat-body .chat-list-box .chat-info .chat-to{
+    height: 30px;
+    display: inline-block;
+    position: absolute;
+    line-height: 30px;
+    text-align: center;
+    font-size: 18px;
+}
+section .chat-body .chat-list-box .chat-info .who-chat{
+    width: 100px;
+    left: 20px;
+}
+section .chat-body .chat-list-box .chat-info .chat-text{
+    width: 100px;
+    left: 180px;
+}
+section .chat-body .chat-list-box .chat-info .chat-to{
+    width: 100px;
+    right: 20px;
+}
+section .chat-body .chat-list-box .chat-list{
+    width: 434px;
+    height: 390px;
+    position: absolute;
+    top: 30px;
+    margin: 10px;
+    font-size: .875rem;
+    color: #666;
+    border: 1px solid #dce4e6;
+    border-radius: 3px;
+    outline: 0;
+    background: #f3f6f8;
+    overflow: hidden;
+}
+section .chat-body .chat-list-box .chat-list li{
+    width: 434px;
+    height: 32px;
+    text-align: left;
+    line-height: 16px;
+    font-size: 16px;
+    color: #666;
+    border: 1px solid #c4d7db;
+}
+section .chat-body .chat-list-box .sendMsgs{
+    width: 345px;
+    height: 40px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: .875rem;
+    color: #666;
+    border: 1px solid #dce4e6;
+    border-radius: 3px;
+    outline: 0;
+    background: #f3f6f8;
+}
+section .chat-body .chat-list-box .send{
+    width: 81px;
+    height: 40px;
+    color: #fff;
+    background: #31b968;
+    -webkit-appearance: button;
+    cursor: pointer;
+    transition: all .2s;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    outline: 0;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+/* section结束 */
+footer{
+    height:80px;
+    position: relative;
+    font-size: .875rem;
+    line-height: 2;
+    width: 100vw;
+    margin: 5.5vh 0;
+    text-align: center;
+    color: #fff;
+}
+footer .copy span{
+    display: inline-block;
+    margin: 0 auto;
+    text-align: left;
+    font: 400 16px/1.618 'PingFang SC','Helvetica Neue','Microsoft YaHei UI','Microsoft YaHei','Noto Sans CJK SC';
+}

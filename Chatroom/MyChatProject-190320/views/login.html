@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web ChatRoom login</title>
+    <link rel="stylesheet" href="../public/css/login.css">
+</head>
+
+<body>
+    <header class="header" id="head">
+        <h1 class="title">Web 聊天室</h1>
+    </header>
+    <section>
+        <div class="login-body">
+            <nav class="login-tabs">
+                <span class="tab-items active">
+                    <i class="pcCode"></i>
+                    <span>账号登录</span>
+                </span>
+                <span class="tab-items">
+                    <i class="qcCode"></i>
+                    <span>扫码登录</span>
+                </span>
+                <span class="tab-bg"></span>
+            </nav>
+            <div class="login-title">
+                登录
+            </div>
+            <div class="box">
+                <div class="login-box">
+                    <article>
+                        <div class="account-login">
+                            <form action="login" method="post">
+                                <div class="login-form">
+                                    <div class="login-user">
+                                        <input type="text" placeholder="用户名/手机/邮箱" name="username" class="username" />
+                                    </div>
+                                    <div class="login-pwd">
+                                        <input type="text" placeholder="请输入密码" name="password" class="password" />
+                                    </div>
+                                    <div class="login-state">
+                                        <div class="checkbox-group"><input type="checkbox" class="save-login"> 记住密码？
+                                        </div>
+                                        <div class="box-fr"><a href="#">忘记密码？</a></div>
+                                    </div>
+                                    <div class="login-btn-box">
+                                        <button class="login">登录</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="wechat-login">
+                            <div>
+                                <div>
+                                    手机扫描，安全登录
+                                </div>
+                                <span>
+
+                                </span>
+                                <div>
+                                    使用
+                                    <a href="#">REXAG客户端</a>
+                                    扫描二维码安全快速登录
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="other-login-wrapper">
+                    <span class="span-box">没有账号？</span>
+                    <a href="#" class="login-now">立即注册 →</a>
+                    <div class="other-login">
+                        <div>使用以下账号直接登录</div>
+                        <div class="login-logos"> 
+                            <a href="#"></a>
+                            <a href="#"></a>
+                            <a href="#"></a>
+                            <a href="#"></a>
+                            <a href="#"></a>
+                            <a href="#"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <footer>
+        <div class="copy">
+            <span>联系邮箱：rexag.zhang@qq.com</span> |
+            <span>联系电话：16675159609</span> |
+            <span>粤ICP备xxxxxxxx号</span>
+            <div>Copyright © 2019 rexag.cn All Rights Reserved</div>
+        </div>
+    </footer>
+</body>
+
+</html>

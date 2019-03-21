@@ -1,0 +1,25 @@
+{
+  "name": "mychatproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "REXAG",
+  "license": "ISC",
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "jsonwebtoken": "^8.5.0",
+    "koa": "^2.7.0",
+    "koa-art-template": "^1.1.1",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "koa-session": "^5.10.1",
+    "koa-socket": "^4.4.0",
+    "koa-static": "^5.0.0",
+    "node-inspect": "^1.11.5",
+    "node-xlsx": "^0.14.1",
+    "socket.io-client": "^2.2.0"
+  }
+}
