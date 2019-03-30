@@ -1,0 +1,366 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { 
+    margin:0; padding:0; 
+}
+body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; }
+h1, h2, h3, h4, h5, h6{ font-size:100%; }
+address, cite, dfn, em, var { font-style:normal; }
+code, kbd, pre, samp { font-family:couriernew, courier, monospace; }
+small{ font-size:12px; }
+ul, ol { list-style:none; }
+a { text-decoration:none; }
+a:hover { color:red; }
+sup { vertical-align:text-top; }
+sub{ vertical-align:text-bottom; }
+legend { color:#000; }
+fieldset, img { border:0; }
+button, input, select, textarea { font-size:100%; }
+table { border-collapse:collapse; border-spacing:0; } 
+/* 初始化结束 */
+
+html{
+    width: 100vw;
+    height: 100vh;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    min-height: 800px;
+    background: url(../images/playbg.jpg) center no-repeat fixed;
+    background-size: cover;
+}
+header{
+    width: 100vw;
+    position: relative;
+}
+header .box-header{
+    width: 1300px;
+    height: 120px;
+    margin: 0 auto;
+    position: relative;
+}
+header .box-header .welcome-wrapper{
+    width: 1300px;
+    height: 120px;
+    position: relative;
+}
+header .box-header .welcome-wrapper  span,
+header .box-header .welcome-wrapper .username,
+header .box-header .welcome-wrapper .logout{
+    display: inline-block;
+    position: absolute;
+    width: 50px;
+    height: 30px;
+    font-size: 16px; 
+    line-height: 30px;
+    bottom: 10px;
+    text-align: center;
+}
+header .box-header .welcome-wrapper span{
+    text-align: center;
+    line-height: 30px;
+    right: 200px;
+
+}
+header .box-header .welcome-wrapper .username{
+    color: #3bc372;
+    right: 100px;    
+    width: 100px;
+    font-size: 20px;
+    cursor: pointer;
+    overflow: hidden;
+    text-decoration: none;
+}
+header .box-header .welcome-wrapper .logout{
+    right: 50px;
+    cursor: pointer;
+    color: #000;
+    text-decoration: none;
+}
+header .box-header .welcome-wrapper .mymusic{
+    width: 1300px;
+    height: 120px;
+    line-height: 120px;
+    color: #000;
+    text-align: center;
+    font-size: 24px;    
+}
+
+header .box-header .login-register{
+    width: 76vw;
+    height: 5vh;
+    margin: 20px 2vw;
+    position: relative;
+}
+header .box-header .login-register .register,
+header .box-header .login-register .login{
+    width: 50px;
+    height: 30px;
+    color: #000;
+    background: #31b968;
+    -webkit-appearance: button;
+    padding: .4rem 1.2rem;
+    cursor: pointer;
+    transition: all .2s;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    outline: 0;
+    position: absolute;
+    right: 50px;
+    bottom: 10px;
+}
+header .box-header .login-register .login{
+    right: 110px;    
+}
+/* header结束 */
+.music-wrapper{
+    width: 100vw;
+}
+.music-wrapper .music-box{
+    width: 1300px;
+    margin: 0 auto;
+    position: relative;
+}
+.music-wrapper .music-box .add-box{
+    height: 30px;
+    width: 1300px;
+    position: relative;
+    margin-bottom: 10px;
+}
+.music-wrapper .music-box .add-box .add-music{
+    height: 30px;
+    width: 80px;
+    position: absolute;
+    left: 40px;
+    top: 0;
+    line-height: 30px;
+    color: #000;
+    background: #31b968;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+}
+.music-wrapper .music-box .container-wrapper{
+    width: 1300px;
+    height: 700px;
+    display: flex;
+}
+.music-wrapper .music-box .container-wrapper .container-box{
+    width: 1260px;
+    position: relative;
+    display: flex;
+    margin: 20px auto;
+}
+.music-wrapper .music-box .container-wrapper .container-box .table-box{
+    width: 860px;
+    height: 550px;
+    max-height: 680px;
+    position: absolute;
+    display: inline-block;
+    margin: 20px;
+}
+.music-wrapper .music-box .container-wrapper .container-box .table-box .table{
+    width: 856px;
+    border:2px solid rgb(165, 162, 124);
+    table-layout: fixed;
+}
+.music-wrapper .music-box .container-wrapper .container-box .table-box .table tr{
+    height: 40px !important;
+    border-bottom: 1px solid #3bc372;
+}
+.music-wrapper .music-box .container-wrapper .container-box .table-box .table td,
+.music-wrapper .music-box .container-wrapper .container-box .table-box .table th{
+    height: 40px;
+    border-right: 1px solid #3bc372;
+    text-align: center;
+}
+.music-wrapper .music-box .container-wrapper .container-box .table-box .table .title{
+    width: 151px;
+}
+.music-wrapper .music-box .container-wrapper .container-box .table-box .table .singer,
+.music-wrapper .music-box .container-wrapper .container-box .table-box .table .music-time,
+.music-wrapper .music-box .container-wrapper .container-box .table-box .table .music-ctl{
+    width: 79px;
+}
+.music-wrapper .music-box .container-wrapper .container-box .table-box .table .last{
+    width: 80px;
+    border-right: none;
+}
+.music-wrapper .music-box .container-wrapper .container-box .table-box .table .music-ctl a{
+    display: inline-block;
+    margin: 0 auto;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+.music-wrapper .music-box .container-wrapper .container-box .table-box .table .music-ctl .ctl-icon{
+    display: inline-block;
+    margin: 0 auto;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+/* 翻页插件开始 */
+.music-box .page-wrapper{
+    width:1260px;
+    height: 27px;
+    position: relative;
+    margin:20px auto;    
+    display: -webkit-flex; 
+    display: flex;
+    position: absolute;
+    bottom: 20px;
+}
+.music-box .page-wrapper .page-box{
+    height: 27px;
+    width: auto;
+    position: relative;
+    margin: 0 auto;  
+    color: #428bca;
+    max-width: 1260px;
+    float: left;
+    display: -webkit-flex; 
+    display: flex;
+    left: -10%;
+}
+.music-box .page-wrapper .page-box li{
+    float: left;
+    list-style: none;
+	color: #fff;
+	height: 25px;
+	line-height: 25px;
+	padding: 0 10px;
+    border: 1px solid #428bca;
+    background-color:  rgba(66, 129, 202, 0.3);
+	margin: 0 2px;
+	border-radius: 4px;
+	vertical-align: middle;
+}
+.music-box .page-wrapper .page-box li:hover{
+    border: 1px solid #428bca;
+    cursor: pointer;
+}
+.music-box .page-wrapper .page-box .current{
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding: 0 10px;
+	margin: 0 2px;
+	color: #fff;
+	background-color: #428bca;
+	border: 1px solid #428bca;
+	border-radius: 4px;
+	vertical-align: middle;
+}
+.music-box .page-wrapper .page-box .disabled{
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding: 0 10px;
+	margin: 0 2px;
+	color: #bfbfbf;
+	background: #f2f2f2;
+	border: 1px solid #bfbfbf;
+	border-radius: 4px;
+    vertical-align: middle;
+    cursor: default !important;
+}
+.music-box .page-wrapper .page-box .gotonum{
+    height: 23px;
+    width: 30px;
+	line-height: 25px;
+	padding: 0 10px;
+	margin: 0 2px;
+    color: #424242;   
+	border: 1px solid #ddd;
+	border-radius: 4px;
+    display: inline-block;
+}
+.music-box .page-wrapper .page-box .gotonum:hover{
+	border: 1px solid #428bca;
+}
+.music-box .page-wrapper .page-box .gotobtn{
+    height: 25px;
+    width: 50px;
+	line-height: 25px;
+	padding: 0 10px;
+	margin: 0 2px;
+    color: #fff;
+    background-color:  rgba(66, 129, 202, 0.3); 
+	border-radius: 4px;    
+    border: 1px solid #ddd;
+	display: inline-block;
+    cursor: pointer;
+}
+.music-box .page-wrapper .page-box .lab-points{
+    display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding: 0 10px;
+	border: 1px solid #ddd;
+	margin: 0 2px;
+    color: #fff;
+    background-color:  rgba(66, 129, 202, 0.3); 
+	border-radius: 4px;
+	text-align: center;
+}
+.music-box .page-wrapper .page-box .pageSize{
+    height: 23px;
+    width: 40px;
+    line-height: 25px;
+	padding: 0 10px;
+	margin: 0 2px;
+	color: #424242;
+	border: 1px solid rgba(255, 255, 255,0.1);
+	border-radius: 4px;
+    display: inline-block;
+}
+/* 翻页插件结束 */
+.music-wrapper .music-box .container-wrapper .container-box .play-box{
+    max-height: 680px;
+    height: 550px;
+    width: 320px;
+    display: inline-block;
+    position: absolute;
+    left: 880px;
+    margin: 20px;
+}
+.music-wrapper .music-box .container-wrapper .container-box .play-box .play-state{
+    height: 30px;
+    width: 320px;
+    position: relative;
+    text-align: left;
+    text-indent: 1rem;
+    line-height: 30px;
+}
+.music-wrapper .music-box .container-wrapper .container-box .play-box .audio{
+    height: 60px;
+    width: 280px;
+    position: relative;
+    margin: 0 20px;
+}
+.music-wrapper .music-box .container-wrapper .container-box .play-box .lrc-wrapper {
+    height: 430px;
+    width: 280px;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 10px 20px;
+    overflow: hidden;
+}
+.music-wrapper .music-box .container-wrapper .container-box .play-box .lrc-wrapper .lrc-box {
+    margin-top: 130px;
+    position: absolute;
+    text-align: center;
+    padding-top: 60px;
+}
+.music-wrapper .music-box .container-wrapper .container-box .play-box .lrc-wrapper .lrc-box p {
+    padding: 0 15px;
+}
+.music-wrapper .music-box .container-wrapper .container-box .play-box .lrc-wrapper .lrc-box .gl {
+    color: white;
+    background-color: hotpink;
+}
+.footer{
+    top: 80vh !important;
+}

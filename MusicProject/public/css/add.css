@@ -1,0 +1,179 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { 
+    margin:0; padding:0; 
+}
+body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; }
+h1, h2, h3, h4, h5, h6{ font-size:100%; }
+address, cite, dfn, em, var { font-style:normal; }
+code, kbd, pre, samp { font-family:couriernew, courier, monospace; }
+small{ font-size:12px; }
+ul, ol { list-style:none; }
+a { text-decoration:none; }
+a:hover { color:red; }
+sup { vertical-align:text-top; }
+sub{ vertical-align:text-bottom; }
+legend { color:#000; }
+fieldset, img { border:0; }
+button, input, select, textarea { font-size:100%; }
+table { border-collapse:collapse; border-spacing:0; } 
+/* 初始化结束 */
+
+html{
+    width: 100vw;
+    height: 100vh;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    min-height: 800px;
+    background: url(../images/add.jpg) center no-repeat fixed;
+    background-size: cover;
+}
+header{
+    width: 100vw;
+    height: 17vh;
+    position: relative;
+}
+header .box-header{
+    width: 685px;
+    height: 15vh;
+    margin: 0 auto;
+    position: relative;
+}
+header .box-header .welcome-wrapper{
+    width: 685px;
+    height: 15vh;
+    position: relative;
+}
+header .box-header .welcome-wrapper  span,
+header .box-header .welcome-wrapper .username,
+header .box-header .welcome-wrapper .logout{
+    display: inline-block;
+    position: absolute;
+    width: 50px;
+    height: 30px;
+    font-size: 16px; 
+    line-height: 30px;
+    bottom: 0px;
+    text-align: center;
+}
+header .box-header .welcome-wrapper span{
+    text-align: center;
+    line-height: 30px;
+    right: 150px;
+
+}
+header .box-header .welcome-wrapper .username{
+    color: #3bc372;
+    right: 50px;    
+    width: 100px;
+    font-size: 20px;
+    cursor: pointer;
+    overflow: hidden;
+    text-decoration: none;
+}
+header .box-header .welcome-wrapper .logout{
+    right: 0;
+    cursor: pointer;
+    color: #000;
+    text-decoration: none;
+}
+header .box-header .welcome-wrapper .mymusic{
+    height: 15vh;
+    width: 100%;
+    line-height: 15vh;
+    color: #000;
+    text-align: center;
+    font-size: 24px;    
+}
+header .box-header .login-register{
+    width: 76vw;
+    height: 5vh;
+    margin: 20px 2vw;
+    position: relative;
+}
+header .box-header .login-register .register,
+header .box-header .login-register .login{
+    width: 50px;
+    height: 30px;
+    color: #000;
+    background: #31b968;
+    -webkit-appearance: button;
+    padding: .4rem 1.2rem;
+    cursor: pointer;
+    transition: all .2s;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    outline: 0;
+    position: absolute;
+    right: 50px;
+    bottom: 10px;
+}
+header .box-header .login-register .login{
+    right: 110px;    
+}
+/* header结束 */
+.add-wrapper{
+    width: 100vw;
+    height: auto;
+    border-radius: 3px;
+    text-align: center;
+    position: relative;
+}
+.add-wrapper .add-box {
+    position: relative;
+    width: 685px;
+    margin: 0 auto;
+    padding: 35px 30px;
+    color: #666;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 1px 1px 4px #767676;
+}
+.add-wrapper .add-box form{
+    position: relative;
+    width: 685px;
+}
+.add-wrapper .add-box form .form-group{
+    width: 400px;
+    height: 48px;
+    margin: 0 auto 20px;
+    position: relative;
+}
+.add-wrapper .add-box form .form-group input:not([type=submit]) {
+    font-size: .875rem;
+    line-height: 1.6;
+    padding: 12px 20px;
+    transition: all .2s;
+    color: #666;
+    border: 1px solid #dce4e6;
+    border-radius: 3px;
+    outline: 0;
+    background: #f3f6f8;
+    width: 265px;
+}
+.add-wrapper .add-box form .form-group .btn{
+    padding: 12px 20px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    outline: 0;    
+    color: #fff;
+    width: 305px;
+    height: 45px;
+    background: #31b968;
+    -webkit-appearance: button;
+    position: absolute;
+    left: 80px;
+}
+.add-wrapper .add-box form .form-group .btn-success{
+   margin-bottom: 20px;
+}
+.add-wrapper .add-box form .form-group .submit-tips{
+    position: absolute;
+    top: 45px;
+    left: 80px;
+ }
+
+body .footer{
+    top: 80vh;
+}

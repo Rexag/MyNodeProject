@@ -1,0 +1,306 @@
+{{ extend '../main/main.html'}}
+
+{{block 'content'}}
+<header>
+    <div class="box-header">
+        {{if user}}
+        <div class="welcome-wrapper">
+            <span>您好:</span> <a class="username" href="/user/ditel">{{user.username}}</a>
+            <a href="/user/logout" class="logout">退出</a>
+            <h1 class="mymusic">我的音乐</h1>
+
+        </div>
+        {{else}}
+        <div class="login-register">
+            <a class="register" href="/user/register">注册</a>
+            <a class="login" href="/user/login">登录</a>
+        </div>
+        {{/if}}
+    </div>
+</header>
+<section class="music-wrapper">
+    <div class="music-box">
+        <div class="add-box">
+            <a href="/music/add" class="add-music">添加音乐</a>
+        </div>
+        <div class="container-wrapper">
+            <div class="container-box">
+                <div class="table-box">
+                    <table class="table">
+                        <thead>
+                            <th class="title">歌曲名称</th>
+                            <th class="singer">歌手姓名</th>
+                            <th class="music-time">歌曲时长</th>
+                            <th class="music-ctl">编辑</th>
+                            <th class="music-ctl">删除</th>
+                            <th class="music-ctl">上一首</th>
+                            <th class="music-ctl">播放</th>
+                            <th class="music-ctl last">下一首</th>
+                        </thead>
+                        <tbody class="list_container" id="list_container">
+                            {{each musics}}
+                            <tr class="{{$value.id}}">
+                                <td class="title">{{$value.title}}</td>
+                                <td class="singer">{{$value.singer}}</td>
+                                <td class="music-time">{{$value.time}}</td>
+                                <td class="music-ctl">
+                                    <a class="" href="/music/edit-music?id={{$value.id}}"><img class="ctl-icon ctr-edit"
+                                            src="/public/images/update.jpg" alt="编辑"></a>
+                                </td>
+                                <td class="music-ctl">
+                                    <a class="del" href="/music/del-music?id={{$value.id}}"><img
+                                            class="ctl-icon ctr-del" src="/public/images/delete.jpg" alt="删除"></a>
+                                </td>
+                                <td class="music-ctl"><span class="{{$value.pageNum +1}}"><img
+                                            class=" {{$value.id}} ctl-icon" id="last-music"
+                                            src="/public/images/last.jpg" alt="上一首"></span></td>
+                                <td class="music-ctl"><span class="{{$value.pageNum +1}}"><img
+                                            class=" {{$value.id}} ctl-icon" id="play" src="/public/images/play.jpg"
+                                            alt="播放"></span></td>
+                                <td class="music-ctl last"><span class="{{$value.pageNum +1}}"><img
+                                            class=" {{$value.id}} ctl-icon next-music" id="next-music"
+                                            src="/public/images/next.jpg" alt="下一首"></span></td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="play-box">
+                    <p class="play-state">播放音乐:</p>
+                    <audio id="audio" class="audio" autoplay src="" controls="controls">
+                    </audio>
+                    <div id="box" class="lrc-wrapper">
+                        <div id="lrc" class="lrc-box">
+                        </div>
+                    </div>
+                </div>
+                <div class="page-wrapper">
+                    <ul id="page-box" class="page-box">
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<script type="text/javascript">
+
+    // 解析歌词函数
+    function parseLrc(str) {
+        let tempObj = {};
+        let lines = str.split('\n');  // 不同的系统有不同的换行符
+        //  \r:mac|| \n:linux || windows:\r\n
+        let regex = /\[(\d{2})\:(\d{2})\.(\d{2})\](.*)/;
+        // 2:遍历该数组，以正则来匹配数据, 其中获取到时间和歌词
+        for (let i = 0; i < lines.length; i++) {
+            let line = lines[i];
+            let result = regex.exec(line);
+            if (!result) continue;
+            let minute = result[1];
+            let second = result[2];
+            let content = result[4];
+            let key = (minute * 60) + (second - 0);
+            tempObj[key] = content;
+        }
+        // 4:返回这个对象
+        return tempObj;
+    }
+
+    // 生成DOM
+    function createDOM(obj) {
+        let html = '';
+        for (let time in obj) {
+            html += '<p time="' + time + '">' + obj[time] + '</p>'
+        }
+        // 插入到lrc元素中
+        $('#lrc').html(html);
+    }
+
+    // 滚动歌词
+    function scroll(obj) {
+        // 歌曲播放事件
+        // audio的timeupdate事件: 获取e.target.currentTime
+        $('#audio').on('timeupdate', function (e) {
+            // 四舍五入成一个整数
+            let second = Math.round(e.target.currentTime);
+            // 判断是否可以滚动
+            if (!obj[second]) return;
+
+            // 滚动逻辑
+            // 1: 根据miao找p标签
+            let p = $('#lrc').find('p[time=' + second + ']'); // p[time=1]
+            // 2: 把p标签的top值- lrc的top值
+            let minus = $('#lrc').offset().top - p.offset().top;
+            // 3: 将上一步的差值作为lrc向上移动的距离
+            $('#lrc').animate({
+                top: minus
+            }, 'slow');
+            // 4: 给这个p标签加样式，并移除其他元素的样式
+            p.addClass('gl').siblings().removeClass('gl');
+
+        });
+    }
+
+
+    //取得总页数，并执行翻页插件初始化  currentPage 默认页数      pageSize 每页数据量
+    function getPageNum(currentPage, pageSize) {
+        //根据数据条数生成高度适宜的box
+        // if ((pageSize - 0) > 12) {
+        //     let
+        // }
+        let num;
+        $.ajax({
+            url: '/music/music-num',
+            type: 'get',
+            success: function (data) {
+                if (data.code === "001") {
+                    let sumCount = Math.ceil((data.num - 0) / (pageSize - 0));
+                    pageFunc(sumCount, currentPage, pageSize);
+                }
+            }
+        })
+    }
+
+    //初始化翻页区域
+    var pageFunc = function (sumCount, currentPage, pageSize) {
+        $('.page-box').createPage({
+            // 总页数
+            sumPageCount: sumCount,
+            // 默认选中页数/跳转页数
+            pageTo: currentPage,
+            //每页数据量
+            pageSize: pageSize,
+            //是否重新渲染翻页插件
+            falg: true,
+            // 点击选中页数后 回调
+            backFn: function (args) {
+                //falg 判断是否需要重新渲染插件和table;
+                if (args.falg) {
+                    getPageNum(args.pageTo, args.pageSize);
+                } else {
+                    changePage(args.pageTo, args.pageSize);
+                }
+            }
+        })
+    }
+
+    // 改变html内容，根据传入的页数重新渲染页面
+    function changePage(currentPage, pageSize) {
+        var pageBox = document.getElementsByClassName('page-box')[0];
+        pageBox.placeholder = pageSize;
+        $.ajax({
+            url: '/music/index',
+            type: 'post',
+            data: 'pageNum=' + currentPage + '&pageSize=' + pageSize,
+            dataType: 'json',
+            success: function (data) {
+                if (data.code == '001') {
+                    let tbody = document.getElementById('list_container');
+                    if (tbody) {
+                        tbody.innerHTML = '';
+                    }
+                    let html = '';
+                    for (let i = 0; i < (pageSize - 0); i++) {
+                        if (data.musics[i]) {
+                            let tr = '<tr class="' + data.musics[i].id + '">' +
+                                '<td class="title">' + data.musics[i].title + '</td>' +
+                                '<td class="singer">' + data.musics[i].singer + '</td>' +
+                                '<td class="music-time">' + data.musics[i].time + '</td>' +
+                                '<td class="music-ctl"><href="/music/edit-music?id=' + data.musics[i].id + '"><img class="ctl-icon ctr-edit" src="/public/images/update.jpg" alt="编辑"></a></td>' +
+                                '<td class="music-ctl"><a href="/music/del-music?id=' + data.musics[i].id + '"><img class="ctl-icon ctr-del" src="/public/images/delete.jpg" alt="删除"></a></td>' +
+                                '<td class="music-ctl"><span class="' + (i + 1) + '"><img class=" ' + data.musics[i].id + ' ctl-icon" id = "last-music" src="/public/images/last.jpg" alt="上一首"></span></td>' +
+                                '<td class="music-ctl"><span class="' + (i + 1) + '"><img class=" ' + data.musics[i].id + ' ctl-icon" id = "play" src="/public/images/play.jpg" alt="播放"></span></td>' +
+                                '<td class="music-ctl last"><span class="' + (i + 1) + '"><img class=" ' + data.musics[i].id + ' ctl-icon" id = "next-music" src="/public/images/next.jpg" alt="下一首"></span></td>' +
+                                '</tr>';
+                            html += tr;
+                        }
+                    };
+                    tbody.innerHTML = html;
+                }
+            }
+        })
+    };
+
+    var falg = true;
+    if (falg) {
+        document.getElementsByClassName('table')[0].onclick = function (e) {
+            falg = false;
+            e.stopPropagation();
+            let event = e || window.event;
+            let target = event.target || event.srcElement;
+            //点击播放
+            if (target.id.toLowerCase() == 'play') {
+                var musicNum = parseInt(target.className);
+                getFilelrc(musicNum);
+            };
+            //点击上一首
+            if (target.id.toLowerCase() == 'last-music') {
+                var span = target.parentElement;
+                // span.className代表歌曲在列表中的位置;
+                if ((span.className - 0) == 1) {
+                    //如果是在第一首歌曲的位置点击上一首则跳转至最后一首
+                    var lastTr = span.parentElement.parentElement.parentElement.lastElementChild;
+                    var musicNum = parseInt((lastTr.className));
+                    getFilelrc(musicNum);
+                } else {
+                    //如果不是在第一首歌曲的位置点击上一首则跳转至下一首
+                    var lastTr = document.getElementsByTagName('tr')[((span.className - 0) - 1)];
+                    var musicNum = parseInt(lastTr.className);
+                    getFilelrc(musicNum);
+                }
+            };
+            //点击下一首
+            if (target.id.toLowerCase() == 'next-music') {
+                var span = target.parentElement;
+                // span.className代表歌曲在列表中的位置;
+                var musicLen = document.getElementsByClassName('table')[0].lastElementChild.className
+                if ((span.className - 0) == (musicLen - 0)) {
+                    //如果是在最后一首歌曲的位置点击则跳转至第一首歌曲
+                    var firstTr = span.parentElement.parentElement.parentElement.firstElementChild;
+                    var musicNum = parseInt((firstTr.className));
+                    getFilelrc(musicNum);
+                } else {
+                    //如果不是在最后一首歌曲的位置进行点击则跳转至下一首歌曲
+                    var nextTr = document.getElementsByTagName('tr')[((span.className - 0) + 1)];
+                    var musicNum = parseInt(nextTr.className);
+                    getFilelrc(musicNum);
+                }
+            };
+        }
+    }
+
+
+    let getFilelrc = function (musicNum) {
+        $.ajax({
+            url: '/music/file-music',
+            type: 'get',
+            data: 'id=' + musicNum,
+            success: function (data) {
+                if (data.code == '001') {
+                    $.ajax({
+                        url: data.music.filelrc,
+                        type: 'get',
+                        success: function (res) {
+                            var lrcObj = parseLrc(res);
+                            createDOM(lrcObj);
+                            scroll(lrcObj);
+                            $('#audio').attr('src', data.music.file);
+                        }
+                    })
+                }
+            }
+        });
+    };
+
+    //初始化翻页插件
+    getPageNum(1, 12);
+
+
+</script>
+
+
+{{/block}}

@@ -1,0 +1,265 @@
+{{ extend '../main/register.html'}}
+
+{{block 'content'}}
+<section class="reg-body">
+    <div class="reg-wrapper">
+        <div class="reg-box">
+            <div class="reg-form">
+                <article>
+                    <div class="form-wrapper">
+                        <form class="form-box" action="" method="post" id="register_form">
+                            <div class="userphone-box form-item">
+                                <input type="text" id="userphone" name="userphone" placeholder="请输入手机号" title="手机号码">
+                                <div class="userphone-tips tips"></div>
+
+                            </div>
+                            <div class="useremail-box  form-item">
+                                <input type="text" id="useremail" name="useremail" placeholder="请输入邮箱地址" title="邮箱地址">
+                                <div class="useremail-tips tips"></div>
+
+                            </div>
+                            <div class="username-box  form-item">
+                                <input type="text" id="username" name="username" placeholder="请输入昵称，至少2个字符，至多20个字符"
+                                    title="昵称，至少2个字符，至多20个">
+                                <div class="username-tips tips"></div>
+
+                            </div>
+                            <div class="userpwd-box  form-item">
+                                <input type="password" id="userpwd" name="userpwd" placeholder="请输入密码，字母或特殊符号和数字结合"
+                                    title="密码，字母或特殊符号和数字结合">
+                                <div class="userpwd-tips tips"></div>
+                            </div>
+                            <div class="pwdlevel-box">
+                                <div class="level-text">密码强度：</div>
+                                <span class="level1"></span>
+                                <span class="level2"></span>
+                                <span class="level3"></span>
+                            </div>
+                            <div class="userpwd-box  form-item">
+                                <input type="password" id="confirmpwd" name="confirmpwd" placeholder="请再次输入密码"
+                                    title="请再次输入密码">
+                                <div class="confirmpwd-tips tips"></div>
+                            </div>
+                            <div class="form-item">
+                                <div class="vCode-box">
+                                    <input type="text" id="vCode" name="vCode" placeholder="四位验证码" title="四位验证码">
+                                    <div class="vCode-tips tips"></div>
+                                </div>
+                                <div class="img_vCode-box">
+                                    <img src="/user/Captcha?" alt="..." id="img_vCode"
+                                        onclick="this.src = '/user/Captcha?' + Date.now()">
+                                </div>
+                            </div>
+                            <div class="pCode-wrapper form-item">
+                                <div class="pCode-box">
+                                    <input type="text" id="pCode" name="pCode" placeholder="请输入手机验证码" title="短信验证码">
+                                    <div class="pCode-tips tips"></div>
+                                </div>
+                                <div class="pCode-send-box">
+                                    <input type="button" value="获取验证码" id="send-phone-code">
+                                </div>
+                            </div>
+                            <div class="mCode-wrapper  form-item">
+                                <div class="mCode-box">
+                                    <input type="text" id="mCode" name="eCode" placeholder="请输入邮箱验证码" title="邮箱验证码">
+                                    <div class="mCode-tips tips"></div>
+                                </div>
+                                <div class="eCode-send-box">
+                                    <input type="button" value="获取验证码" id="send-email-code">
+                                </div>
+                            </div>
+                            <div class="sexChoice-wrapper  form-item">
+                                <div class="sex-box">
+                                    <input type="radio" id="sexChoice-male" checked="checked" class="male" name="sex"
+                                        value="male">
+                                    <label for="sexChoice-male" class="male-le">男士</label>
+                                    <input type="radio" id="sexChoice-female" class="female" name="sex" value="female">
+                                    <label for="sexChoice-female" class="female-le">女士</label>
+                                </div>
+                            </div>
+                            <div class="terms-wrapper form-item">
+                                <div class="terms-box">
+                                    <input type="checkbox" id="terms_agree">
+                                    <label for="terms_agree">已阅读同意<a href="/user/terms_agree"
+                                            target="_back">服务条款</a></label>
+                                    <div class="agree-tips tips"></div>
+                                </div>
+                            </div>
+                            <div class="btnreg-box">
+                                <button type="submit" class="btn-register">注册</button>
+                                <div class="submit-tips tips"></div>
+                            </div>
+                        </form>
+                    </div>
+                </article>
+            </div>
+            <div class="reg-other">
+                <span class="span-box">已经注册过？</span>
+                <a href="http://127.0.0.1:8888/user/login" class="login-now">直接登录 →</a>
+                <div class="other-login">
+                    <div>使用以下账号直接登录</div>
+                    <div class="login-logos">
+                        <a href="#"></a>
+                        <a href="#"></a>
+                        <a href="#"></a>
+                        <a href="#"></a>
+                        <a href="#"></a>
+                        <a href="#"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    "use strict";
+
+    //检查用户名是否已被注册
+    var checkUsername = (function () {
+        var prevUsername;
+        return function () {
+            var username = document.getElementById('username').value;
+            if (username === '' || prevUsername === username) {
+                return;
+            }
+            $.ajax({
+                url: '/user/check-username',
+                type: 'post',
+                data: 'username=' + username,
+                dataType: 'json',
+                success: function (data) {
+                    prevUsername = username;
+                    if (data.code !== '001') {
+                        var usernametips = document.getElementsByClassName('username-tips')[0];
+                        usernametips.innerHTML = result.msg;
+                    }
+                }
+            });
+        }
+    })();
+
+    //检查邮箱格式
+    var checkEmail = (function () {
+        var prevEmail;
+        return function () {
+            var useremail = document.getElementById('useremail').value;
+            if (useremail === '' || prevEmail === useremail) {
+                return;
+            }
+            var regex = /^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g;
+            var ressult = regex.test(useremail);
+            var tips = document.getElementsByClassName('useremail-tips')[0];
+            if (ressult) {
+                tips.innerHTML = '';
+            } else {
+                tips.innerHTML = '邮箱格式不正确，请重新输入!'
+            }
+        }
+    })();
+
+    //检查手机格式
+    var checkPhone = (function () {
+        var prevPhone;
+        return function () {
+            var userphone = document.getElementById('userphone').value;
+            if (userphone === '' || prevPhone === userphone) {
+                return;
+            }
+            var regex = /^1[3-9][0-9]\d{4,8}$/;
+            var num = parseInt(userphone);
+            var ressult = regex.test(num);
+            var tips = document.getElementsByClassName('userphone-tips')[0];
+            if (ressult) {
+                tips.innerHTML = '';
+            } else {
+                tips.innerHTML = '手机号码格式不正确，请重新输入!'
+            }
+        }
+    })();
+
+    // 验证密码强度函数
+    function checkPwdLeve(str) {
+        var tmpLevel = 0;
+        // 三次判断
+        var reg1 = /\d/; // 数字
+        var reg2 = /\w/; // 字母
+        var reg3 = /\W/; //特殊字符
+
+        if (reg1.test(str)) tmpLevel++;
+        if (reg2.test(str)) tmpLevel++;
+        if (reg3.test(str)) tmpLevel++;
+        return tmpLevel;
+    }
+
+    // 用户名验证
+    document.getElementById('username').onblur = checkUsername;
+
+    //邮箱验证
+    document.getElementById('useremail').onblur = checkEmail;
+
+    //手机验证
+    document.getElementById('userphone').onblur = checkPhone;
+
+    // 密码长度/强度提示
+    document.getElementById('userpwd').onkeyup = function () {
+        var pwd = document.getElementById('userpwd').value;
+        var tips = document.getElementsByClassName('userpwd-tips')[0];
+        if (pwd.length < 8) {
+            tips.innerHTML = '密码长度必须大于8位!'
+        } else {
+            tips.innerHTML = '';
+        }
+        var level = checkPwdLeve(pwd);
+        var spans = $('.pwdlevel-box').find('span');
+        var colors = ['yellowgreen', 'skyblue', 'hotpink'];
+        for (var i = 0; i < spans.length; i++) {
+            spans[i].style.backgroundColor = '';
+        }
+        for (var i = 0; i < level; i++) {
+            spans[i].style.backgroundColor = colors[i];
+        }
+    };
+
+    //验证两次密码是否一致
+    document.getElementById('confirmpwd').onblur = function () {
+        var confirpwd = document.getElementById('confirmpwd').value;
+        var pwd = document.getElementById('userpwd').value;
+        var tips = document.getElementsByClassName('confirmpwd-tips')[0];
+        if (pwd !== confirpwd) {
+            tips.innerHTML = '两次密码不一致!';
+        } else {
+            tips.innerHTML = '';
+        }
+    };
+
+    //进行注册动作
+    document.getElementById('register_form').onsubmit = function (e) {
+        var terms_agree = document.getElementById('terms_agree');
+        if (terms_agree && terms_agree.checked ===false) {
+            var submittips = document.getElementsByClassName('agree-tips')[0];
+                    submittips.innerHTML = "未勾选服务条款!";
+        }
+        e.preventDefault();
+        var formData = $(this).serialize();
+        $.ajax({
+            url: '/user/do-register',
+            data: formData,
+            type: 'post',
+            dataType: 'json',
+            success: function (data) {
+                if (data.code === '001') {
+                    if (confirm('注册成功,是否去登录?')) {
+                        window.location = '/user/login';
+                    }
+                } else {
+                    var submittips = document.getElementsByClassName('submit-tips')[0];
+                    submittips.innerHTML = data.msg;
+                }
+            }
+        })
+    }
+
+</script>
+
+{{/block}}

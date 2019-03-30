@@ -1,0 +1,302 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, 
+legend, button, input, textarea, th, td { 
+    margin:0; padding:0; 
+}
+body, button, input{ font:12px/1.5tahoma, arial, \5b8b\4f53; };
+h1, h2, h3, h4, h5, h6{ font-size:100%; };
+ul, ol { list-style:none; };
+a { text-decoration:none; };
+a:hover { text-decoration:underline; };
+img { border:0; };
+button, input{ font-size:100%; };
+table { border-collapse:collapse; border-spacing:0; } ;
+
+html{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background: url(../images/register.jpg) center no-repeat fixed;
+    background-size: cover;
+}
+.header{
+    width: 100vw;
+    height: 200px;
+    text-align: center;
+    position: relative;
+}
+.header .title{
+    width: 100vw;
+    height: 200px;
+    position: relative;
+    line-height: 200px;
+    font-size: 30px;
+}
+.reg-body {
+    width: 100vw;
+    height: auto;
+    border-radius: 3px;
+    text-align: center;
+    position: relative;
+}
+.reg-body .reg-wrapper {
+    position: relative;
+    width: 685px;
+    margin: 0 auto;
+    padding: 35px 30px;
+    color: #666;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 1px 1px 4px #767676;
+}
+.reg-body .reg-wrapper .reg-box {
+    position: relative;
+    width: 625px;
+    color: #666;
+}
+.reg-body .reg-wrapper .reg-box .reg-form {
+    position: relative;
+    width: 405px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+.reg-body .reg-wrapper .reg-box .reg-form .form-wrapper{
+    width: 405px;
+    padding-top: 5px;
+}
+.reg-body .reg-wrapper .reg-box .reg-form .form-wrapper .form-box{
+    width: 300px;
+    margin-right: 52px;
+    margin-left: 38px;
+}
+.reg-body .reg-wrapper .reg-box .reg-form .form-item {
+    width: 300px;
+    height: 48px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.reg-body .reg-wrapper .reg-box .reg-form .form-item input{
+    width: 258px;
+ }
+input:not([type=button]) {
+    font-size: .875rem;
+    line-height: 1.6;
+    padding: 12px 20px;
+    transition: all .2s;
+    color: #666;
+    border: 1px solid #dce4e6;
+    border-radius: 3px;
+    outline: 0;
+    background: #f3f6f8;
+}
+.reg-body .reg-wrapper .reg-box .reg-form .pwdlevel-box{
+    width: 300px;
+    height: 16px;
+    margin-bottom: 20px;
+    position: relative;
+    text-align: left;
+    line-height: 16px;
+    font-size: 16px;
+}
+.reg-body .reg-wrapper .reg-box .reg-form .pwdlevel-box .level-text{
+    width: 80px;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.reg-body .reg-wrapper .reg-box .reg-form .pwdlevel-box .level1,
+.reg-body .reg-wrapper .reg-box .reg-form .pwdlevel-box .level2,
+.reg-body .reg-wrapper .reg-box .reg-form .pwdlevel-box .level3{
+    width: 60px;
+    height: 8px;
+    margin: 4px 0;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    border: 1px solid #fff;
+}
+.reg-body .reg-wrapper .reg-box .reg-form .pwdlevel-box .level1{
+    left: 90px;
+   border-bottom-left-radius: 12px;
+   border-top-left-radius: 12px;
+
+}
+.reg-body .reg-wrapper .reg-box .reg-form .pwdlevel-box .level2{
+    left: 160px;
+}
+.reg-body .reg-wrapper .reg-box .reg-form .pwdlevel-box .level3{
+    left: 230px;
+    border-bottom-right-radius: 12px;
+    border-top-right-radius: 12px;
+}
+.reg-body .reg-wrapper .reg-box .reg-form .tips{
+    font-size: 12px;
+    color: #e35b5a;
+    position: absolute;
+    top: 100%;
+}
+.reg-body .reg-wrapper .reg-box .reg-form .form-item .vCode-box,
+.reg-body .reg-wrapper .reg-box .reg-form .form-item .pCode-box,
+.reg-body .reg-wrapper .reg-box .reg-form .form-item .mCode-box{
+    width: 168px;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.reg-body .reg-wrapper .reg-box .reg-form .form-item .vCode-box input,
+.reg-body .reg-wrapper .reg-box .reg-form .form-item .pCode-box input,
+.reg-body .reg-wrapper .reg-box .reg-form .form-item .mCode-box input{
+    width: 126px;
+}
+.reg-body .reg-wrapper .reg-box .reg-form .form-item .img_vCode-box{
+    width: 120px;
+    height: 48px;
+    margin-left: 12px;
+    display: inline-block;
+    position: absolute;
+    left: 168px;
+    top: 0;
+    cursor: pointer;
+}
+.reg-body .reg-wrapper .reg-box .reg-form .form-item .img_vCode-box img{
+    width: 100%;
+}
+.reg-body .reg-wrapper .reg-box .reg-form .form-item .pCode-send-box,
+.reg-body .reg-wrapper .reg-box .reg-form .form-item .eCode-send-box{
+    width: 120px;
+    height: 48px;
+    text-align: center;
+    position: absolute;
+    left: 168px;
+    top: 0;
+    margin-left: 12px;
+}
+.reg-body .reg-wrapper .reg-box .reg-form .form-item .pCode-send-box input,
+.reg-body .reg-wrapper .reg-box .reg-form .form-item .eCode-send-box input{
+    width: 100%;
+    height: 48px;
+    color: #fff;
+    background: #31b968;
+    -webkit-appearance: button;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    outline: 0;
+}
+.reg-body .reg-wrapper .reg-box .reg-form .sex-box{
+    width: 300px;
+    height: 24px;
+    position: relative;
+}
+.reg-body .reg-wrapper .reg-box .reg-form .sex-box .male,
+.reg-body .reg-wrapper .reg-box .reg-form .sex-box .female{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    display: inline-block;
+    left: 0;
+}
+.reg-body .reg-wrapper .reg-box .reg-form .sex-box .female{
+    left: 150px;
+}
+.reg-body .reg-wrapper .reg-box .reg-form .sex-box .male-le,
+.reg-body .reg-wrapper .reg-box .reg-form .sex-box .female-le{
+    line-height: 1;
+    position: absolute;
+    display: inline-block;
+    align-items: center;
+    left: 30px;
+    text-align: center;
+}
+.reg-body .reg-wrapper .reg-box .reg-form .sex-box .female-le{
+    left: 180px;
+}
+.reg-body .reg-wrapper .reg-box .reg-form .terms-wrapper{
+    height: 25px;
+}
+.reg-body .reg-wrapper .reg-box .reg-form .terms-wrapper .terms-box{
+    width: 300px;
+    height: 25px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.reg-body .reg-wrapper .reg-box .reg-form .terms-wrapper .terms-box input{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    margin: 5px 0;
+}
+.reg-body .reg-wrapper .reg-box .reg-form .terms-wrapper .terms-box label{
+    position: absolute;
+    left: 20px;
+    height: 25px;
+    display: inline-block;
+    font-size: 1rem;
+    color: #666;
+    line-height: 25px;
+}
+.reg-body .reg-wrapper .reg-box .reg-form .btnreg-box{
+    width: 300px;
+    height: 45px;
+}
+.reg-body .reg-wrapper .reg-box .reg-form .btnreg-box .btn-register{
+    padding: .4rem 1.2rem;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    outline: 0;    
+    color: #fff;
+    width: 300px;
+    height: 45px;
+    background: #31b968;
+    -webkit-appearance: button;
+}
+.reg-body .reg-box .reg-other{
+    height: 733px;
+    width: 179px;
+    padding-left: 38px;
+    border-left: 1px dashed #eee;
+    text-align: left;
+    float: right;
+}
+.reg-body .reg-box .reg-other .span-box{
+    display: block;
+    height: 25px;
+    line-height: 25px;
+}
+.reg-body .reg-box .reg-other .login-now{
+    padding: 0;
+    color: #31b968;
+    border: none;
+    border-radius: 0;
+    font-size: 1.125rem;
+    text-decoration: none;
+}
+.reg-body .reg-box .reg-other .other-login{
+    margin-top: 10px;
+    height: 123px;
+    width: 179px;
+}
+.reg-body .reg-box .reg-other .other-login .login-logos{
+    height: 98px;
+    margin-top: 10px;
+    width: 179px;
+    background: url(../images/Snipaste_2019-03-19_23-11-21.png) no-repeat;
+    background-size: cover;
+}
+.reg-body .reg-box .reg-other .other-login .login-logos a{
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    margin-top: 10px;
+    margin-right: 20px;
+    outline: 0; 
+} 
