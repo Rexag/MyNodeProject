@@ -1,5 +1,5 @@
-## MyNodeProject
-基于node搭建后台的联系项目
+## MyNodeProject 
+基于node搭建后台的练习项目库
 
 # chatroom 实时在线聊天室
   基于web socket的实时在线聊天项目，主要基于koa-socket进行双工通讯
